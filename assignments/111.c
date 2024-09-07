@@ -3,7 +3,9 @@
 int main(void) {
   int num = 5 * 10;
   printf("Låt oss göra lite matte\n");
+  // does not work, because I use utf-8 in this terminal, can be verified with echo $LANG
   printf("\x86 \n");
+  // here is 'å' in hex in utf-8
   printf("\xc3\xa5\n");
   printf("5 * 10 = %d\n", num);
   /*
