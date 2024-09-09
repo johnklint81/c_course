@@ -68,8 +68,6 @@ int main(void) {
       printf("Felaktig inmatning. Försök igen.\n");
       continue;
     }
-
-  
     int r = rand() / (RAND_MAX / (2 + 1) + 1);  // safe-ish way to generate rands
     print_selection(r);
     int win = check_winner(selection, r);

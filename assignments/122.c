@@ -22,7 +22,5 @@ int main(void) {
   printf("P %% Q = %d\n", P % Q);  // Note modulo 0 is undefined behavior in C
   printf("Q * P = %.4e\n", (float)Q * (float)P);
   printf("Q with zero padding: %09d\n", Q);
-  int a = (!(1==0)+(0==1)*1)+(1 || 1 && 0) + (!1 + 1);
-  printf("%d", a);
   return 0;
 }
