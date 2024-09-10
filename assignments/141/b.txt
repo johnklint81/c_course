@@ -1,0 +1,8 @@
+Including instructions twice can be prevented by including 
+
+#ifndef HEADER_NAME_H
+#define HEADER_NAME_H
+
+#endif
+
+in the makefile.
