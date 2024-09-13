@@ -32,6 +32,5 @@ int main(void) {
         printf("\nProgrammet avslutas.\n");
         return 0;
     }
-    
   }
 }
