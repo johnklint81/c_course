@@ -2,7 +2,7 @@
 
 
 // can't pass arr1 or arr2 directly to function as it decays into a pointer, size must be passed separately
-void *combine(int arr1[], int arr2[], int arr3[], size_t size1, size_t size2) {
+void combine(int arr1[], int arr2[], int arr3[], size_t size1, size_t size2) {
   // smallest size of the two arrays to be combined
   int matched_size = (size1 < size2) ? size1 : size2;
   int arr3_index = 0;
