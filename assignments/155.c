@@ -32,21 +32,21 @@ void combine_sorted(int arr1[], int arr2[], int arr4[], size_t size1, size_t siz
         if (arr1[arr1_index] <= arr2[arr2_index]) {
             arr4[arr4_index] = arr1[arr1_index];
             arr1_index++;
-        } else {
+        } 
+        else {
             arr4[arr4_index] = arr2[arr2_index];
             arr2_index++;
         }
         arr4_index++;
     }
 
-    // Copy remaining elements from arr1 (if any)
+    // remaining items
     while (arr1_index < size1) {
         arr4[arr4_index] = arr1[arr1_index];
         arr4_index++;
         arr1_index++;
     }
 
-    // Copy remaining elements from arr2 (if any)
     while (arr2_index < size2) {
         arr4[arr4_index] = arr2[arr2_index];
         arr4_index++;
