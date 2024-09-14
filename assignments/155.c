@@ -54,6 +54,7 @@ void combine_sorted(int arr1[], int arr2[], int arr4[], size_t size1, size_t siz
     }
 }
 
+
 int main(void) {
     int arr1[3] = {1, 2, 12};
     int arr2[5] = {5, 6, 7, 8, 9};
