@@ -36,7 +36,7 @@ int main(void) {
   }
   printf("Här är dina ord: \n");
   for (int i = 0; i < n_words; ++i) {
-    printf("%c\n", *str_arr[i]);
+    printf("%s\n", str_arr[i]);
     free(str_arr[i]);
   }
   free(str_arr);
