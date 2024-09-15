@@ -74,18 +74,19 @@ void print_arr(char **str_arr, int n_words) {
 }
 
 // Main function
+// buffer is a limitation of the program
 int main(void) {
   int buffer = 1024;
   int n_words = 10;
   char *str = malloc(n_words * buffer * sizeof(char));
   char **str_arr = malloc(n_words * sizeof(char*));
-  // get input
+  // get input, fgets() stop reading the buffer after n - 1 characters to prevent buffer overflow
   fgets(str, buffer, stdin);
   // remove newline char
   str[strcspn(str, "\n")] = '\0';
   int i = 0;
   // split the input string into substrings based on space delimiter
-  char *word = strtok(str, " "); 
+  char *word = strtok(str, " ");
   while (word != NULL) {
     // strdup copies a string, unsure why this is needed but I had bugs without
     str_arr[i] = strdup(word);
@@ -93,14 +94,12 @@ int main(void) {
     // split the remainder of the str string.
     word = strtok(NULL, " ");
   }
-  // add delimiter at the end of each word
-  for (int j = i; j < n_words; j++) {
-    str_arr[j] = NULL;
-  }
   sort1(str_arr, n_words);
   printf("After sorting by length\n");  
   print_arr(str_arr, n_words);
   sort2(str_arr, n_words);
   printf("After alphabetical sorting\n");
   print_arr(str_arr, n_words);
+  free(str);
+  free(str_arr);
 }
