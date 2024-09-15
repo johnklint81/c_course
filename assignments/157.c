@@ -30,6 +30,7 @@ int main(void) {
     str[length++] = c;
     // Add a terminating null character to the array.
     str[length] = '\0';
+    // Store in array
     str_arr[i] = str;
     }
     i++;
