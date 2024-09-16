@@ -1,0 +1,1 @@
+this is a string with two occurences of the word string
