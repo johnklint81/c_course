@@ -47,7 +47,7 @@ int main(void) {
   int buffer = 10;
   char dest[buffer];
 
-  // test cases
+  // test cases char[] decays into a pointer when passed to a function
   const char *origin1 = "Bla bla longer than ever"; 
   const char *origin2 = "Shorter";
   const char *origin3 = "\n";
