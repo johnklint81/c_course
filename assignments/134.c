@@ -13,7 +13,7 @@ int main(void) {
     if (!res) {
       printf("Incorrect input, terminating.\n");
       return 1;
-    }
+    } 
 
     switch (input) {
       case 1:

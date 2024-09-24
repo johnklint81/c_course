@@ -24,6 +24,7 @@ void sort1(char **str_arr, int n_words) {
     char *temp = str_arr[i];
     int temp_size = size[i];
     int j = i - 1;
+;
     // Determine if the size of any of the elements to the left of the current 
     // item i are larger than item j. If so, move to the right side of the 
     // current element.
@@ -44,10 +45,12 @@ void sort2(char **str_arr, int n_words) {
   char *temp;
   for (int i = 0; i < n_words - 1; i++) {
     // if compare against NULL skip current iteration
-    if (str_arr[i] == NULL) continue;
+    if (str_arr[i] == NULL) 
+      continue;
     for (int j = i + 1; j < n_words; j++) {
       // same as above comment
-      if (str_arr[j] == NULL) continue;
+      if (str_arr[j] == NULL) 
+        continue;
       // strlen() gives length of a string
       if (strlen(str_arr[i]) == strlen(str_arr[j])) {
         // strcmp() compares two strings and returns 0 if equal, >0 if
@@ -75,12 +78,14 @@ void print_arr(char **str_arr, int n_words) {
 
 // Main function
 // buffer is a limitation of the program
+// no guard for more input than 10 strings
 int main(void) {
   int buffer = 1024;
   int n_words = 10;
   char *str = malloc(n_words * buffer * sizeof(char));
   char **str_arr = malloc(n_words * sizeof(char*));
   // get input, fgets() stop reading the buffer after n - 1 characters to prevent buffer overflow
+  printf("Enter 10 strings:\n");
   fgets(str, buffer, stdin);
   // remove newline char
   str[strcspn(str, "\n")] = '\0';
@@ -98,7 +103,7 @@ int main(void) {
   printf("After sorting by length\n");  
   print_arr(str_arr, n_words);
   sort2(str_arr, n_words);
-  printf("After alphabetical sorting\n");
+  printf("After sorting by length and alphabetical\n");
   print_arr(str_arr, n_words);
   free(str);
   free(str_arr);

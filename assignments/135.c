@@ -30,15 +30,19 @@ int main(void) {
   printf("\nDu får %.2f kr tillbaks i växel.\n\n", change);
   int change_counter[9] = {0};
   float denominations[9] = {1000, 500, 100, 50, 20, 10, 5, 1, 0.5};
+  // loop through the available denominations and divide the change with
+  // the denomination and update the change_counter with the number of times it was possible
   for (int i = 0; i < 8; i++) {
       change_counter[i] = (int) change / denominations[i];
+        // subtract the amount from the change and repeat for all denominations
         if (change_counter[i] > 0) {
           change -= (float)change_counter[i] * denominations[i];
     }
   }
-  if (change >= 0.5) {
+  // in case there is something left 
+ if (change >= 0.5) {
     change_counter[9] += 1;
-  }
+ }
   for (int i = 0; i < 5; ++i) {
     printf("%d st %.0f kr sedlar,\n", change_counter[i], denominations[i]);
   }

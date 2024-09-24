@@ -4,6 +4,8 @@
 // f)
 
 int main() {
+
+   // printf(/* Skriv ut... */"");
     initscr();            // Initialize ncurses mode
     cbreak();             // Disable line buffering, pass keypresses directly
     noecho();             // Disable echoing the characters typed by user
@@ -31,10 +33,10 @@ int main() {
 // b) // printf("Skriv */ ut...");
 // c) printf("// Skriv ut...");
 // d) printf(//"Skriv ut...");
-// e) printf(/* Skriv ut... */"");
 
 /* 
- e) and d) gives compilation errors, thus wrong. 
+ e) works
+ d) gives compilation errors, thus wrong. 
  a) and b) comments the line as intended, but in b) the star, backslash is unnecessary.
  c) prints the statement, which is probably not intended.
  */

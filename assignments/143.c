@@ -6,7 +6,8 @@
 int main(void) {
   struct tm time1 = {0};
   struct tm time2 = {0};
-  int *date1 = (int*)malloc(6 * sizeof(int));  //(int*) because malloc returns void*s
+  int *date1 = (int*)malloc(6 * sizeof(int));  //(int*) because malloc returns void*s ...
+  //not necessary to cast return type of malloc! learned this today!
   int *date2 = (int*)malloc(6 * sizeof(int));
   int *date_difference = (int*)malloc(6 * sizeof(int));
   char **names = (char**)malloc(6 * sizeof(char*));

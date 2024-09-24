@@ -9,16 +9,17 @@ int main(void) {
   double arr2[2][2] = {{0.0, 1.0}, {1.0, 0.0}};
   double arr3[2][2] = {{0.0, -1.0}, {1.0, 0.0}};
 
-  FILE *file1 = fopen("matris1.bin", "wb");
-  FILE *file2 = fopen("matris2.bin", "wb");
-  FILE *file3 = fopen("matris3.bin", "wb");
+  FILE *file1 = fopen("matris1.txt", "w");
+  FILE *file2 = fopen("matris2.txt", "w");
+  FILE *file3 = fopen("matris3.txt", "w");
 
   fwrite(arr1, sizeof(double), n, file1);
   fwrite(arr2, sizeof(double), n, file2);
-  fwrite(arr2, sizeof(double), n, file3);
+  fwrite(arr3, sizeof(double), n, file3);
  
 
-  // Show and ask why it only prints zero after reading from file without fclose()
+  // Show and ask why it only prints zero after reading from file without
+  // fclose()
   fclose(file1);
   fclose(file2);
   fclose(file3);
@@ -52,9 +53,9 @@ int main(void) {
   memset(arr2, 0, sizeof(arr2));
   memset(arr3, 0, sizeof(arr3));
 
-  file1 = fopen("matris1.bin", "rb");
-  file2 = fopen("matris2.bin", "rb");
-  file3 = fopen("matris3.bin", "rb");
+  file1 = fopen("matris1.txt", "r");
+  file2 = fopen("matris2.txt", "r");
+  file3 = fopen("matris3.txt", "r");
 
   fread(arr1, sizeof(double), n, file1);
   fread(arr2, sizeof(double), n, file2);
@@ -84,4 +85,5 @@ int main(void) {
     }
     printf("\n");
   }
+  printf("\n");
 }

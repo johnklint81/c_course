@@ -8,6 +8,7 @@ void clear_input_buffer() {
   while ((c = getchar()) != '\n' && c != EOF);
 }
 
+// hard coded win conditions, player a win = 1, player b win = -1, draw = 0
 int check_winner(int a, int b) {
   int winner;
   if (a == 0 && b == 1) {
@@ -64,6 +65,7 @@ int main(void) {
       return 0;
     }
     if (res != 1 || selection < 0 || selection > 3) {
+      // just a hack because I needed to clear input buffer
       clear_input_buffer();
       printf("Felaktig inmatning. Försök igen.\n");
       continue;

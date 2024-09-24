@@ -3,6 +3,7 @@
 int main(void) {
   char text[] = "Gothenburg";
   char *my_pointer = text;
+  char *copy = *my_pointer;
   int input;
   int len;
 
@@ -19,12 +20,12 @@ int main(void) {
     }
     switch (input) {
       case 1:
-        if (*(my_pointer + 1) != '\0' ) {
+        if ((*my_pointer + 1) != '\0' ) {
           my_pointer += 1;
         }
         break;
       case 2:
-        if (*(my_pointer - 1) != '\0') {
+        if ((*my_pointer - 1) < copy) {
           my_pointer -= 1;   
         }
         break;

@@ -30,11 +30,13 @@ struct node *addNode(struct node *n, double d) {
 }
 // remove a node from the list
 void removeNode(struct node *n) {
-  // if the previous node exists then the previous node's next pointer should point to the location of the removed node's next pointer
+  // if the previous node exists then the previous node's next pointer should 
+  // point to the location of the removed node's next pointer
   if (n->previous != NULL) {
     n->previous->next = n->next;
   }
-  // similarly, if the next node exists, then the next node's previous pointer should point to the location of removed node's previous pointer
+  // similarly, if the next node exists, then the next node's previous 
+  // pointer should point to the location of removed node's previous pointer
   if (n->next != NULL) {
     n->next->previous = n->previous;
   }

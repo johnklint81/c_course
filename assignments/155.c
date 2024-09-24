@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 
-// can't pass arr1 or arr2 directly to function as it decays into a pointer, size must be passed separately
-void combine(int arr1[], int arr2[], int arr3[], size_t size1, size_t size2) {
+// can't pass arr1 or arr2 directly to function as it decays into a pointer, 
+// size must be passed separately
+void combine(char arr1[], char arr2[], char arr3[], size_t size1, size_t size2) {
   // smallest size of the two arrays to be combined
   int matched_size = (size1 < size2) ? size1 : size2;
   int arr3_index = 0;
@@ -26,7 +27,11 @@ void combine(int arr1[], int arr2[], int arr3[], size_t size1, size_t size2) {
   } 
 }
 
-void combine_sorted(int arr1[], int arr2[], int arr4[], size_t size1, size_t size2) {
+// Something wrong with this function, it appends a null character 
+// in the middle of the combined lists for part b)
+// Works now, had initialised arr2 as arr2[5], i.e. 2 empty spaces
+void combine_sorted(char arr1[], char arr2[], char arr4[], 
+                    size_t size1, size_t size2) {
   int arr1_index = 0, arr2_index = 0, arr4_index = 0;
     while (arr1_index < size1 && arr2_index < size2) {
         if (arr1[arr1_index] <= arr2[arr2_index]) {
@@ -39,7 +44,6 @@ void combine_sorted(int arr1[], int arr2[], int arr4[], size_t size1, size_t siz
         }
         arr4_index++;
     }
-
     // remaining items
     while (arr1_index < size1) {
         arr4[arr4_index] = arr1[arr1_index];
@@ -56,25 +60,26 @@ void combine_sorted(int arr1[], int arr2[], int arr4[], size_t size1, size_t siz
 
 
 int main(void) {
-    int arr1[3] = {1, 2, 12};
-    int arr2[5] = {5, 6, 7, 8, 9};
+    char arr1[3] = {'a', 'b', 'c'};   
+    char arr2[3] = {'1', '2', '3'};
     size_t size1 = sizeof(arr1) / sizeof(arr1[0]); 
     size_t size2 = sizeof(arr2) / sizeof(arr2[0]);
+    printf("%zu, %zu", size1, size2);
     int size3 = size1 + size2;
-    int arr3[size3];
-    int arr4[size3];
+    char arr3[size3];
+    char arr4[size3];
     printf("Size of array 1: %lx\n", size1);
     printf("Size of array 2: %lx\n", size2);
     combine(arr1, arr2, arr3, size1, size2);
     printf("The combined array is: \n");
     for (int i = 0; i < size3; ++i) {
-      printf("%d ", arr3[i]);
+      printf("%c ", arr3[i]);
     }
     printf("\n");
     combine_sorted(arr1, arr2, arr4, size1, size2);
     printf("The combined array is: \n");
     for (int i = 0; i < size3; ++i) {
-      printf("%d ", arr4[i]);
+      printf("%c ", arr4[i]);
     }
     printf("\n"); 
 }

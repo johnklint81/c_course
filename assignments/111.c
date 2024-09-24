@@ -7,7 +7,7 @@ int main(void) {
   printf("\x86 \n");
   // here is 'å' in hex in utf-8
   printf("\xc3\xa5\n");
-  printf("5 * 10 = %d\n", num);
+  printf("5 * 10 = %i\n", num);
   /*
   The prepocessor does a number of things: It expands macros and replace them with
   actual values, includes the standard or user defined headers into the file and 

@@ -41,7 +41,8 @@ int main(void) {
       // if the while condition is fulfilled then we have found
       // a match. this will have happened ptr - content steps into the string.
       indices[i++] = ptr - content;
-      // we must increase the size of the indices array to have available space
+      // we must increase the size of the indices array to have available
+      // space
       indices = realloc(indices, (i + 1) * sizeof(int));
       // move pointer to end of word
       ptr += strlen(word);
