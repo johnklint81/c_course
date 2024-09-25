@@ -3,7 +3,8 @@
 
 // can't pass arr1 or arr2 directly to function as it decays into a pointer, 
 // size must be passed separately
-void combine(char arr1[], char arr2[], char arr3[], size_t size1, size_t size2) {
+void combine(char arr1[], char arr2[], char arr3[],
+             size_t size1, size_t size2) {
   // smallest size of the two arrays to be combined
   int matched_size = (size1 < size2) ? size1 : size2;
   int arr3_index = 0;
@@ -64,7 +65,6 @@ int main(void) {
     char arr2[3] = {'1', '2', '3'};
     size_t size1 = sizeof(arr1) / sizeof(arr1[0]); 
     size_t size2 = sizeof(arr2) / sizeof(arr2[0]);
-    printf("%zu, %zu", size1, size2);
     int size3 = size1 + size2;
     char arr3[size3];
     char arr4[size3];
