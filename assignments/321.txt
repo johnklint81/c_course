@@ -1,0 +1,58 @@
+We start as in 311 by creating a new project and adding it to the current workspace.
+The next step I think removes the ability to close the window by clicking the panel.
+It also changes the titlebar height to match the font size and centers the window
+when it is opened.
+
+Next we add a decoration n by right clicking the panel. We then edit it and add
+callback function, a text message.
+
+Then we add a selection button from numeric to be used as color selector and add
+callback function name and button name.
+
+Next step adds four command buttons to move text up/down/left/right. Callback 
+functions are added. We then generate a custom control quit button.
+
+After this the code is generated from Code/Generate/All Code.
+
+The modification of the code consists of declaring two ints x and y to control
+the text position. Then a callback function of the panel that allows the window
+and program to be closed. This is a switch:
+
+switch (event) {
+  case EVENT_GOT_FOCUS:
+    break;
+  case EVENT_LOST_FOCUS:
+    break;
+  case EVENT_CLOSE:
+    QuitUserInterface(0);
+  break;
+}
+
+We similarly have a callback function of the color selector, also a switch:
+
+switch (event) {
+  case EVENT_COMMIT:
+    // fetches the value of the color att the addres of the variable
+    // color
+    GetCtrlVal(panelHandle, PANEL_COLORNUM, &color);
+    // sets the value of the control attribute for the text message,
+    // meaning this sets the color of the text message
+    SetCtrlAttribute(panelHandle, PANEL_TEXTMSG,ATTR_TEXT_COLOR,color);
+}
+
+Lastly, we need to add a callback function for each of the buttons that move
+the text. This is also done by a switch:
+
+switch (event) {
+  case EVENT_COMMIT:
+    // fetches value at address y:
+    GetCtrlAttribute(panelHandle, PANEL_TEXTMSG,ATTR_TOP,&y);
+    // updates y
+    y -= 10;
+    // sets the new position of the text:
+    SetCtrlAttribute(panelHandle, PANEL_TEXTMSG,ATTR_TOP,y);
+    break;
+}
+
+All these callback functions are created analogously except they use x instead
+and add or subtract.

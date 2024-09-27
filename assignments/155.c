@@ -61,7 +61,7 @@ void combine_sorted(char arr1[], char arr2[], char arr4[],
 
 
 int main(void) {
-    char arr1[3] = {'a', 'b', 'c'};   
+    char arr1[4] = {'a', 'b', 'c'};   
     char arr2[3] = {'1', '2', '3'};
     size_t size1 = sizeof(arr1) / sizeof(arr1[0]); 
     size_t size2 = sizeof(arr2) / sizeof(arr2[0]);

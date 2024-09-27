@@ -1,8 +1,8 @@
 .PHONY : all
 
 all : 111 112 113 121 122 131 134 135 136 137 143 \
-      144 152 153 154 155 156 157 158 159 1510 1511 \
-      161 162 211 212
+      144 153 154 155 156 157 158 159 1510 1511 \
+      161 162 211 212 lib1 lib2 421
 
 111 : 111.c
 	gcc -o 111 111.c
@@ -54,3 +54,14 @@ all : 111 112 113 121 122 131 134 135 136 137 143 \
 	gcc -o 211 211.c
 212 : 212.c
 	gcc -o 212 212.c
+# -fPIC generates position independent code, necessary for shared libraries
+# -shared tells the compiler to create a shared library
+lib1 : lib1.c lib1.h
+	@echo "Compiling lib1 from lib1.c"
+	gcc -fPIC -shared -o lib1.so lib1.c
+lib2 : lib2.c lib2.h
+	@echo "Compiling lib2 from lib2.c"
+	gcc -fPIC -shared -o lib2.so lib2.c
+# -L. tells compiler to look for libraries in the current directory
+421 : 421.c
+	gcc -o 421 421.c -L. -l1 -l2

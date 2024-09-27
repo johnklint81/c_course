@@ -1,0 +1,17 @@
+I will just make a variation of 312 since I do not have the ability to explore
+the functions of LabWindows. The problem is to create a window that has a clock and LED
+that starts to blink once after a certain time is reached. After the LED
+has blinked for a certain amount of time it stops. The timer might continue
+counting or not after the it has reached the specified value, but maybe
+print the value of the timer in red to indicate that it has gone over the
+timelimit. The problem would be worth 1p.
+
+It would be solved by first, creating a new project and adding it to the workspace.
+Then a LED can be added and an appropriate callback function set. We would also need to 
+add a text field with a callback function. This should connect to a timer so that the
+text window shows the timer value. We would then generate the code and modify it so
+that we have a switch case for event. Here we could use the EVENT_TIMER_TICK property
+to measure and determine when it is time to start flashing the led. The LED can be
+turned on/off with SetCtrlVal(panelHandle, PANEL_LED, i) where i={0, 1}. To change
+the color we would have to find a property in the textwindow to change the text based
+on the value of the timer.

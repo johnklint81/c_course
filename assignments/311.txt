@@ -1,0 +1,38 @@
+We start by creating a new project, then select user interface from application.
+Then we add the project folder to the current workspace
+
+This generates a source code file and a .uir (user interface file). By double clicking
+the panel we can modify the properties, the callback function includes the specific 
+instruction we want to associate with the object.
+
+We can right click in the panel to add a text box and the double click it to modify
+the fields describing its properties. We can also add an "OK" button and modify
+its fields. These should have a specific callback function associated with the action
+we want them to perform.
+
+Similarly, we can add a quit button and do the same thing as for the ok button.
+
+Right clicking outside the panel, we can create a new panel for the output. To this
+we add a text box. By setting the control mode to indicator we prevent the text box
+from being possible to modify.
+
+After this we select generate code and the code is generated and overwrites the old
+source file.
+
+We must then modify the generated source code to add variables by adding *textbox
+and textlength to be used whhen we move text from Panel 1 to Panel 2. We then modify
+the callback functions so the program is closed when we close the panels by adding 
+a new case:
+
+case EVENT_CLOSE:
+  QuitUserInterface(0);
+
+The text is moved from Panel 1 to Panel 2 by adding a case as:
+
+case EVENT_COMMIT:
+  textbox = malloc(sizeof(char) * (textlength+1));
+  GetCtrlVal(panelHandle, PANEL_TextBoxCtrl, textbox);
+  SetCtrlVal(panel2, PANEL_2_TextBoxCtrl_2, textbox);
+
+where the first row allocates memory, the second row put text from Panel 1 in the 
+textbox and the third row puts the textbox variable in Panel 2.
